@@ -25,3 +25,12 @@ while read df; do
   mkdir -p "$(dirname "$link")"
   ln -sf "$df" "$link"
 done
+
+# Install zshmarks
+echo "Installing zshmarks..."
+if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zshmarks" ]; then
+  git clone https://github.com/jocelynmallon/zshmarks.git "$HOME/.oh-my-zsh/custom/plugins/zshmarks"
+  echo "zshmarks installed successfully"
+else
+  echo "zshmarks already installed"
+fi

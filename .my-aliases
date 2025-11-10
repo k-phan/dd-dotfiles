@@ -1,0 +1,7 @@
+alias c="jump"
+alias k="kubectl"
+
+alias tidy="bzl run //domains/api_platform/apps/tidy"
+
+alias winter-dwb="kubectl exec -it -n datastores dogweb-backend -- psql postgres://postgres:postgres@localhost:5434/dogdatastaging"
+alias winter-oui="kubectl exec -it -n toolbox toolbox -- psql postgres://postgres:postgres@orgstore-oui.datastores:5435/oui"
