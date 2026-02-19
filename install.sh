@@ -26,17 +26,6 @@ while read df; do
   ln -sf "$df" "$link"
 done
 
-# Clone experimental repo and set up Claude Code agents
-EXPERIMENTAL_DIR="$HOME/dd/experimental"
-echo "Setting up Claude Code agents from experimental repo..."
-if [ ! -d "$EXPERIMENTAL_DIR" ]; then
-  git clone git@github.com:DataDog/experimental.git "$EXPERIMENTAL_DIR"
-  echo "Cloned experimental repo"
-else
-  echo "experimental repo already cloned"
-fi
-bash "$EXPERIMENTAL_DIR/users/khai.phan/scripts/install.sh"
-
 # Install zshmarks
 echo "Installing zshmarks..."
 if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zshmarks" ]; then
