@@ -16,9 +16,11 @@ This is a personal dotfiles repository that gets applied when provisioning new D
 - `etc/workspace-template.code-workspace` — VS Code multi-root workspace template targeting dd-source with Ruff/Python formatting
 - `scripts/setup-claude-slack-notifications.sh` — Configures Claude Code hooks to send Slack notifications via Atlas when Claude needs input or completes a task
 - `agents/` — Markdown-based agent prompts for multi-agent automation via Claude Code
-  - `orchestrator.md` — Orchestrator prompt: analyzes a Jira ticket's child tickets, builds a dependency map, creates worktrees for parallel execution, and delegates to ticket-workers via the Task tool
+  - `orchestrator.md` — Orchestrator prompt: delegates to the planner, then creates worktrees and dispatches ticket-workers based on the roadmap
+  - `planner.md` — Planner prompt: reads a Jira ticket's children, explores the codebase for file overlap, builds a dependency graph with engineer assignments (2–4), and flags merge conflict risks
   - `ticket-worker.md` — Worker prompt: implements a ticket end-to-end without plan mode, commits incrementally, and pushes a draft PR. Supports operating in a worktree directory.
   - `worktree-manager.md` — Worktree manager prompt: creates and tears down git worktrees in `.worktrees/` for parallel sub-ticket execution
+  - `.runs/<ticket-id>/` — Runtime artifacts per orchestrator run (gitignored): `plan/roadmap.json`, `plan/comments.md`, `worktrees.json`, `status.md`
 
 ## Architecture
 
