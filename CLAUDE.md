@@ -15,9 +15,10 @@ This is a personal dotfiles repository that gets applied when provisioning new D
 - `etc/config.yaml` — Devserver workspace config (shell, region, VS Code extensions)
 - `etc/workspace-template.code-workspace` — VS Code multi-root workspace template targeting dd-source with Ruff/Python formatting
 - `scripts/setup-claude-slack-notifications.sh` — Configures Claude Code hooks to send Slack notifications via Atlas when Claude needs input or completes a task
-- `agents/` — Claude Agent SDK project (TypeScript) for multi-agent automation
-  - `src/orchestrator.ts` — Orchestrator agent: takes a ticket, creates a branch, delegates implementation to the ticket-worker agent
-  - `src/agents/ticket-worker.ts` — Worker agent: implements a ticket end-to-end without plan mode, commits incrementally, and pushes a draft PR
+- `agents/` — Markdown-based agent prompts for multi-agent automation via Claude Code
+  - `orchestrator.md` — Orchestrator prompt: analyzes a Jira ticket's child tickets, builds a dependency map, creates worktrees for parallel execution, and delegates to ticket-workers via the Task tool
+  - `ticket-worker.md` — Worker prompt: implements a ticket end-to-end without plan mode, commits incrementally, and pushes a draft PR. Supports operating in a worktree directory.
+  - `worktree-manager.md` — Worktree manager prompt: creates and tears down git worktrees in `.worktrees/` for parallel sub-ticket execution
 
 ## Architecture
 
