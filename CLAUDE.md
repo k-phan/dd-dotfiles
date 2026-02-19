@@ -9,7 +9,7 @@ This is a personal dotfiles repository that gets applied when provisioning new D
 ## Key Files
 
 - `install.sh` — Workspace bootstrap script: symlinks all dotfiles (files starting with `.`) from `~/dotfiles` to `$HOME`, clones the `DataDog/experimental` repo and runs `users/khai.phan/scripts/install.sh` to set up Claude Code agents, and installs zshmarks plugin. Runs automatically when a workspace is created.
-- `.zshrc` — Shell config: oh-my-zsh with "apple" theme, git + zshmarks plugins, direnv integration
+- `.zshrc` — Shell config: oh-my-zsh with "robbyrussell" theme, git + zshmarks plugins, direnv integration
 - `.my-aliases` — Shell aliases for kubectl, Bazel tidy, Claude Code, zshmarks bookmarks, and ddtool auth
 - `.gitconfig` — Git config with SSH commit signing, URL rewrite for private DataDog repos (`git@github.com:DataDog/` instead of `https://`)
 - `etc/config.yaml` — Devserver workspace config (shell, region, VS Code extensions)
