@@ -6,7 +6,7 @@ You receive a Jira ticket ID or URL. This is the parent ticket.
 
 ## Output
 
-All output goes to `agents/.runs/<ticket-id>/plan/`:
+All output goes to `~/.claude/agents/.runs/<ticket-id>/plan/`:
 
 - `roadmap.json` — The dependency graph and work assignment (see schema below)
 - `comments.md` — Your recommendations about parallelization, merge conflict risks, and any tickets you suggest splitting or grouping
@@ -29,7 +29,7 @@ To assess overlap:
 
 ### Step 3 — Build the dependency graph
 
-Create `agents/.runs/<ticket-id>/plan/roadmap.json` with this schema:
+Create `~/.claude/agents/.runs/<ticket-id>/plan/roadmap.json` with this schema:
 
 ```json
 {
@@ -67,7 +67,7 @@ Key fields:
 
 ### Step 4 — If roadmap.json already exists
 
-If `agents/.runs/<ticket-id>/plan/roadmap.json` already exists, read it first. Compare it against the current state of the tickets. Update it if:
+If `~/.claude/agents/.runs/<ticket-id>/plan/roadmap.json` already exists, read it first. Compare it against the current state of the tickets. Update it if:
 - Child tickets have been added, removed, or changed.
 - Your file overlap analysis reveals a better grouping.
 - Previous assignments led to conflicts (check for notes in `comments.md`).
@@ -76,7 +76,7 @@ Preserve any manual edits or annotations that look intentional.
 
 ### Step 5 — Write comments
 
-Create or update `agents/.runs/<ticket-id>/plan/comments.md` with:
+Create or update `~/.claude/agents/.runs/<ticket-id>/plan/comments.md` with:
 
 - **Conflict hotspots** — Files or code areas that multiple tickets touch. Explain the risk.
 - **Grouping rationale** — Why you grouped certain tickets on the same engineer.
