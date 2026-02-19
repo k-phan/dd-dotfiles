@@ -26,28 +26,11 @@ while read df; do
   ln -sf "$df" "$link"
 done
 
-# Symlink agents into ~/.claude/
+# Symlink agents into ~/.claude/ (agents/ doesn't start with . so the dotfiles loop above won't catch it)
 echo "Setting up Claude Code agents..."
 mkdir -p "$HOME/.claude"
 ln -sfn "$DOTFILES_PATH/agents" "$HOME/.claude/agents"
-
-# Create global CLAUDE.md if it doesn't exist
-if [ ! -f "$HOME/.claude/CLAUDE.md" ]; then
-  cat > "$HOME/.claude/CLAUDE.md" << 'CLAUDE_EOF'
-## Agents
-
-Agent prompt files are at ~/.claude/agents/. When asked to orchestrate, plan, or work on a ticket, read the relevant prompt file and follow its instructions. Run artifacts go to ~/.claude/agents/.runs/<ticket-id>/.
-
-Available agents:
-- `~/.claude/agents/orchestrator.md` — Top-level orchestrator for parallel ticket execution
-- `~/.claude/agents/planner.md` — Engineering lead that builds dependency graphs and assigns work
-- `~/.claude/agents/ticket-worker.md` — Implements a single ticket end-to-end
-- `~/.claude/agents/worktree-manager.md` — Manages git worktree lifecycle
-CLAUDE_EOF
-  echo "Created ~/.claude/CLAUDE.md"
-else
-  echo "~/.claude/CLAUDE.md already exists, skipping"
-fi
+echo "Symlinked ~/.claude/agents"
 
 # Install zshmarks
 echo "Installing zshmarks..."

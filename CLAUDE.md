@@ -8,7 +8,8 @@ This is a personal dotfiles repository that gets applied when provisioning new D
 
 ## Key Files
 
-- `install.sh` — Workspace bootstrap script: symlinks all dotfiles (files starting with `.`) from `~/dotfiles` to `$HOME`, symlinks `agents/` to `~/.claude/agents/`, creates `~/.claude/CLAUDE.md`, and installs zshmarks plugin. Runs automatically when a workspace is created.
+- `install.sh` — Workspace bootstrap script: symlinks all dotfiles (files starting with `.`) from `~/dotfiles` to `$HOME`, symlinks `agents/` to `~/.claude/agents/` and `.claude/CLAUDE.md` to `~/.claude/CLAUDE.md`, and installs zshmarks plugin. Runs automatically when a workspace is created.
+- `.claude/CLAUDE.md` — Global Claude Code instructions, symlinked to `~/.claude/CLAUDE.md` by `install.sh`. Lists available agents and how to invoke them.
 - `.zshrc` — Shell config: oh-my-zsh with "apple" theme, git + zshmarks plugins, direnv integration
 - `.my-aliases` — Shell aliases for kubectl, Bazel tidy, Claude Code, zshmarks bookmarks, and ddtool auth
 - `.gitconfig` — Git config with SSH commit signing, URL rewrite for private DataDog repos (`git@github.com:DataDog/` instead of `https://`)
