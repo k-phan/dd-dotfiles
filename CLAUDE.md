@@ -15,6 +15,9 @@ This is a personal dotfiles repository that gets applied when provisioning new D
 - `etc/config.yaml` — Devserver workspace config (shell, region, VS Code extensions)
 - `etc/workspace-template.code-workspace` — VS Code multi-root workspace template targeting dd-source with Ruff/Python formatting
 - `scripts/setup-claude-slack-notifications.sh` — Configures Claude Code hooks to send Slack notifications via Atlas when Claude needs input or completes a task
+- `agents/` — Claude Agent SDK project (TypeScript) for multi-agent automation
+  - `src/orchestrator.ts` — Orchestrator agent: takes a ticket, creates a branch, delegates implementation to the ticket-worker agent
+  - `src/agents/ticket-worker.ts` — Worker agent: implements a ticket end-to-end without plan mode, commits incrementally, and pushes a draft PR
 
 ## Architecture
 
@@ -23,3 +26,7 @@ The `install.sh` script is the entry point. It uses `find` to locate all dotfile
 The `etc/` directory holds non-dotfile configuration that isn't symlinked automatically — workspace and editor templates.
 
 The `scripts/` directory holds standalone utilities meant to be run manually.
+
+## Workflow
+
+Whenever files in this repo are added, removed, or modified, update this CLAUDE.md to reflect the changes (add/remove/update entries in Key Files, Architecture, etc.). Keep CLAUDE.md as the single source of truth for what's in the repo.
