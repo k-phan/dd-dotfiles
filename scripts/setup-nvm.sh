@@ -9,6 +9,9 @@ else
   echo "nvm already installed"
 fi
 
+# Remove prefix setting from .npmrc that conflicts with nvm
+sed -i '/^prefix=/d' "$HOME/.npmrc" 2>/dev/null || true
+
 # Load nvm in lieu of restarting the shell
 \. "$HOME/.nvm/nvm.sh"
 
