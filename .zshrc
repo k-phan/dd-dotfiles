@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:/home/bits/go/bin"
+export PATH="$PATH:/home/bits/go/bin:/home/bits/.npm-global/bin"
 
 ZSH_THEME="robbyrussell"
 plugins=(git zshmarks)
