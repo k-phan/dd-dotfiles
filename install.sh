@@ -34,3 +34,17 @@ if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zshmarks" ]; then
 else
   echo "zshmarks already installed"
 fi
+
+# Install nvm and Node.js
+"$DOTFILES_PATH/setup-nvm.sh"
+
+# Load nvm so npm is available
+\. "$HOME/.nvm/nvm.sh"
+
+# Install Graphite CLI
+echo "Installing Graphite CLI..."
+npm install -g @withgraphite/graphite-cli
+echo "Graphite CLI installed successfully"
+
+# Install worktrunk
+"$DOTFILES_PATH/setup-worktrunk.sh"
