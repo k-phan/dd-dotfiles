@@ -36,10 +36,11 @@ else
 fi
 
 # Install nvm and Node.js
-"$DOTFILES_PATH/setup-nvm.sh"
+"$DOTFILES_PATH/scripts/setup-nvm.sh"
 
-# Load nvm so npm is available
-\. "$HOME/.nvm/nvm.sh"
+# Load nvm so npm is available (|| true to avoid failing under set -e when Volta's prefix conflicts)
+\. "$HOME/.nvm/nvm.sh" || true
+nvm use --delete-prefix v24.14.0 --silent
 
 # Install Graphite CLI
 echo "Installing Graphite CLI..."
@@ -47,4 +48,4 @@ npm install -g @withgraphite/graphite-cli
 echo "Graphite CLI installed successfully"
 
 # Install worktrunk
-"$DOTFILES_PATH/setup-worktrunk.sh"
+"$DOTFILES_PATH/scripts/setup-worktrunk.sh"
