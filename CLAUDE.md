@@ -11,8 +11,9 @@ This is a personal dotfiles repository that gets applied when provisioning new D
 - `install.sh` — Workspace bootstrap script: symlinks all dotfiles (files starting with `.`) from `~/dotfiles` to `$HOME`, installs zshmarks plugin, runs `setup-nvm.sh`, installs Graphite CLI globally via npm, and runs `setup-worktrunk.sh`. Runs automatically when a workspace is created.
 - `scripts/setup-nvm.sh` — Installs nvm (v0.40.4) and Node.js 24. Called by `install.sh`.
 - `scripts/setup-worktrunk.sh` — Installs worktrunk (v0.27.0) and its zsh shell integration. Called by `install.sh`.
-- `post-install.sh` — Runs post-bootstrap setup that requires manual intervention (e.g., private repo access). Invokes `scripts/setup-experimental.sh`. Can be re-run safely. Aliased as `ws-install`.
+- `post-install.sh` — Runs post-bootstrap setup that requires manual intervention (e.g., private repo access). Invokes `scripts/setup-experimental.sh` and `scripts/setup-bookmarks.sh`. Can be re-run safely. Aliased as `ws-install`.
 - `scripts/setup-experimental.sh` — Clones the private `DataDog/experimental` repo. Called by `post-install.sh`.
+- `scripts/setup-bookmarks.sh` — Syncs zshmarks bookmarks by running the sync script from `experimental/users/khai.phan/bookmarks/sync.sh`. Called by `post-install.sh`.
 - `.zshrc` — Shell config: oh-my-zsh with "robbyrussell" theme, git + zshmarks plugins, direnv integration
 - `.my-aliases` — Shell aliases for kubectl, Bazel tidy, Claude Code, zshmarks bookmarks, workspace post-install (`ws-install`), and ddtool auth
 - `.gitconfig` — Git config with SSH commit signing, URL rewrite for private DataDog repos (`git@github.com:DataDog/` instead of `https://`)
