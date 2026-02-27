@@ -9,6 +9,7 @@ DOTFILES_PATH="$HOME/dotfiles"
 "$DOTFILES_PATH/scripts/setup-experimental.sh"
 "$DOTFILES_PATH/scripts/setup-bookmarks.sh"
 "$DOTFILES_PATH/scripts/setup-pyenv.sh"
+"$DOTFILES_PATH/scripts/setup-pgsm.sh"
 
 # Reload zsh config so pyenv is available without restarting the terminal
 echo "Reloading zsh config..."
