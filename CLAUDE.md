@@ -14,7 +14,7 @@ This is a personal dotfiles repository that gets applied when provisioning new D
 - `post-install.sh` — Runs post-bootstrap setup that requires manual intervention (e.g., private repo access). Invokes `scripts/setup-experimental.sh`, `scripts/setup-bookmarks.sh`, and `scripts/install-pyenv.sh`. Reloads zsh config at the end. Can be re-run safely. Aliased as `ws-install`.
 - `scripts/setup-experimental.sh` — Clones the private `DataDog/experimental` repo. Called by `post-install.sh`.
 - `scripts/setup-bookmarks.sh` — Syncs zshmarks bookmarks by running the sync script from `experimental/users/khai.phan/bookmarks/sync.sh`. Called by `post-install.sh`.
-- `scripts/install-pyenv.sh` — Installs pyenv via the recommended automatic installer (pyenv.run). Called by `post-install.sh`.
+- `scripts/setup-pyenv.sh` — Installs pyenv via the recommended automatic installer (pyenv.run). Called by `post-install.sh`.
 - `.zshrc` — Shell config: oh-my-zsh with "robbyrussell" theme, git + zshmarks plugins, direnv integration
 - `.my-aliases` — Shell aliases for kubectl, Bazel tidy, Claude Code, zshmarks bookmarks, workspace post-install (`ws-install`), and ddtool auth
 - `.gitconfig` — Git config with SSH commit signing, URL rewrite for private DataDog repos (`git@github.com:DataDog/` instead of `https://`)
