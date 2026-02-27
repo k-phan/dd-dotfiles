@@ -49,3 +49,6 @@ echo "Graphite CLI installed successfully"
 
 # Install worktrunk
 "$DOTFILES_PATH/scripts/setup-worktrunk.sh"
+
+# Install pyenv
+"$DOTFILES_PATH/scripts/setup-pyenv.sh"

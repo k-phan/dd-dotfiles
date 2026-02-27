@@ -8,6 +8,5 @@ DOTFILES_PATH="$HOME/dotfiles"
 
 "$DOTFILES_PATH/scripts/setup-experimental.sh"
 "$DOTFILES_PATH/scripts/setup-bookmarks.sh"
-"$DOTFILES_PATH/scripts/setup-pyenv.sh"
 "$DOTFILES_PATH/scripts/setup-pgsm.sh"
 
