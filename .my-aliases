@@ -11,9 +11,11 @@ alias winter-oui="kubectl exec -it -n toolbox toolbox -- psql postgres://postgre
 
 # Claude
 alias yolo="claude --model opus --dangerously-skip-permissions"
+alias tb-yolo="claude --model opus --agent tb --dangerously-skip-permissions"
 
 # Workspace
 alias ws-install="$HOME/dotfiles/post-install.sh"
 
 # Misc
 alias login="ddtool auth login --datacenter=us1.ddbuild.io"
+alias gh-login="ddtool auth github token --org DataDog | gh auth login --with-token"
